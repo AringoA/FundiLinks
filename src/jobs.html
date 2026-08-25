@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="jobs.css">
+    <title>Browse Jobs · FundiLink</title>
+  </head>
+<body>
+
+    <header>
+      <nav class="navbar">
+        <a href="index.html" class="logo">FundiLink</a>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button>
+        <ul class="nav-menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="jobs.html" class="active">Browse Jobs</a></li>
+          <li><a href="login.html" class="btn-nav">Register</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="jobs-hero">
+      <h1>Browse Jobs</h1>
+      <p>Open gigs posted by employers across Nairobi. Apply in seconds.</p>
+    </div>
+
+    <div class="chips-bar" id="chipsBar">
+      <button class="chip active" data-category="all">All</button>
+      <button class="chip" data-category="plumbing">Plumbing</button>
+      <button class="chip" data-category="electrical">Electrical</button>
+      <button class="chip" data-category="cleaning">Cleaning</button>
+      <button class="chip" data-category="painting">Painting</button>
+      <button class="chip" data-category="moving">Moving</button>
+      <button class="chip" data-category="gardening">Gardening</button>
+      <button class="chip" data-category="driving">Driving</button>
+      <button class="chip" data-category="cooking">Cooking</button>
+      <button class="chip" data-category="security">Security</button>
+    </div>
+
+    <div class="jobs-container">
+      <div id="jobGrid"></div>
+    </div>
+
+    <footer>
+      <p><strong>FundiLink</strong> · Built by Group 8 · Nairobi, Kenya · 2026</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="jobs.html">Browse Jobs</a>
+        <a href="register-worker.html">Register</a>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script src="main.js"></script>
+    <script type="text/babel" src="jobs.jsx"></script>
+  </body>
+</html>

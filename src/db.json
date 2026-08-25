@@ -1,0 +1,305 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Kamau",
+      "email": "john@example.com",
+      "password": "password123",
+      "role": "worker"
+    },
+    {
+      "id": "2",
+      "firstName": "Mary",
+      "lastName": "Wanjiku",
+      "email": "mary@example.com",
+      "password": "password123",
+      "role": "employer"
+    },
+    {
+      "firstName": "john",
+      "lastName": "kamau",
+      "email": "you@example.com",
+      "password": "mmmmmmmmmm",
+      "role": "employer",
+      "id": "mr_RwAlkmmI"
+    },
+    {
+      "firstName": "john",
+      "lastName": "kamau",
+      "email": "you@gg.com",
+      "password": "nmnnnnnnnm",
+      "role": "employer",
+      "id": "UkwAGl22sEU"
+    },
+    {
+      "firstName": "john",
+      "lastName": "kamau",
+      "email": "you@example",
+      "password": "mmmmmmmm",
+      "role": "worker",
+      "id": "KGws9-9H39A"
+    },
+    {
+      "firstName": "vincent",
+      "lastName": "ddd",
+      "email": "you@example.com",
+      "password": "Kwezaaaaa22222",
+      "role": "worker",
+      "id": "t3OS7TI5KEY"
+    },
+    {
+      "firstName": "john",
+      "lastName": "ssss",
+      "email": "ss@gggmm.com",
+      "password": "333eeeedddA",
+      "role": "worker",
+      "id": "glQ63MCPD38"
+    },
+    {
+      "firstName": "hh",
+      "lastName": "bbb",
+      "email": "bbbb@ffff.com",
+      "password": "sssssddd",
+      "role": "worker",
+      "id": "-skyeyzyEDE"
+    },
+    {
+      "firstName": "john",
+      "lastName": "hasssa",
+      "email": "hasssa@gmail.com",
+      "password": "123wwwWWWee",
+      "role": "worker",
+      "id": "_GNG-kDAMYc"
+    },
+    {
+      "firstName": "bbbb",
+      "lastName": "dddd",
+      "email": "kkk@gmail.com",
+      "password": "vvvvvvvv",
+      "role": "worker",
+      "id": "281lxfBoE5o"
+    },
+    {
+      "firstName": "bbb",
+      "lastName": "fffff",
+      "email": "kkkkk@gmail.com",
+      "password": "ggggg@ 3333",
+      "role": "worker",
+      "id": "Guc4Uzkob0k"
+    },
+    {
+      "firstName": "nnn",
+      "lastName": "@333eeee",
+      "email": "jeeejej@bnn",
+      "password": "eeeeeee333333",
+      "role": "worker",
+      "id": "k4vypAOF_Sw"
+    },
+    {
+      "firstName": "ggg",
+      "lastName": "3333",
+      "email": "ffff@gmail.com",
+      "password": "3333333333333",
+      "role": "employer",
+      "id": "rmoO61PaMz8"
+    },
+    {
+      "firstName": "Kwezi",
+      "lastName": "Bwoga",
+      "email": "kwezibwoga@gm",
+      "password": "njjrrrjjjjjr",
+      "role": "worker",
+      "id": "fCnZBj9ukcE"
+    },
+    {
+      "firstName": "rrr",
+      "lastName": "ffff",
+      "email": "kwezibwoga@gm",
+      "password": "4jjjjjjjjjjj@jjj",
+      "role": "employer",
+      "id": "r89b-Jz7ulo"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "1",
+      "title": "Fix leaking kitchen sink",
+      "category": "plumbing",
+      "location": "Westlands, Nairobi",
+      "pay": 1500,
+      "payType": "fixed",
+      "urgent": true,
+      "duration": "~2 hours",
+      "employerId": 2,
+      "employer": "Peter Mwangi",
+      "description": "The kitchen sink has been dripping for 3 days. Need someone to replace the tap washer and check the pipe under the sink.",
+      "isActive": true
+    },
+    {
+      "id": "2",
+      "title": "Office deep clean (5 rooms)",
+      "category": "cleaning",
+      "location": "Kilimani, Nairobi",
+      "pay": 2000,
+      "payType": "fixed",
+      "urgent": false,
+      "duration": "Half day",
+      "employerId": 2,
+      "employer": "Wanjiku Events Ltd",
+      "description": "End of tenancy clean for a 5-room office. Includes windows, floors, bathrooms, and kitchen. Supplies provided.",
+      "isActive": true
+    },
+    {
+      "id": "3",
+      "title": "Paint 3-bedroom apartment",
+      "category": "painting",
+      "location": "South B, Nairobi",
+      "pay": 12000,
+      "payType": "fixed",
+      "urgent": false,
+      "duration": "2–3 days",
+      "employerId": 2,
+      "employer": "Aisha Oduya",
+      "description": "Repaint interior of a 3-bedroom flat. White walls, brown gloss on doors. Paint supplied, bring own brushes.",
+      "isActive": true
+    },
+    {
+      "id": "4",
+      "title": "Help move furniture",
+      "category": "moving",
+      "location": "Ruaka, Kiambu",
+      "pay": 3000,
+      "payType": "fixed",
+      "urgent": true,
+      "duration": "~4 hours",
+      "employerId": 2,
+      "employer": "David Kimani",
+      "description": "Moving out of a 2-bedroom house this Saturday. Need 2 people to load and unload a pickup truck.",
+      "isActive": true
+    },
+    {
+      "id": "5",
+      "title": "Garden clearing & trimming",
+      "category": "gardening",
+      "location": "Karen, Nairobi",
+      "pay": 2500,
+      "payType": "fixed",
+      "urgent": false,
+      "duration": "Full day",
+      "employerId": 2,
+      "employer": "Njoroge Family",
+      "description": "Large overgrown garden — grass cutting, hedge trimming, debris bagging. Tools on site.",
+      "isActive": true
+    },
+    {
+      "id": "6",
+      "title": "Fix power sockets in living room",
+      "category": "electrical",
+      "location": "Parklands, Nairobi",
+      "pay": 1800,
+      "payType": "fixed",
+      "urgent": true,
+      "duration": "~3 hours",
+      "employerId": 2,
+      "employer": "Grace Otieno",
+      "description": "Two wall sockets stopped working. Need a qualified electrician to diagnose and repair today.",
+      "isActive": true
+    },
+    {
+      "id": "7",
+      "title": "School run driver",
+      "category": "driving",
+      "location": "Lavington, Nairobi",
+      "pay": 800,
+      "payType": "per day",
+      "urgent": false,
+      "duration": "Mon–Fri, 6–8am & 4–6pm",
+      "employerId": 2,
+      "employer": "Fatuma Hassan",
+      "description": "Reliable driver for school pickups and drop-offs. Valid licence required. Fuel provided.",
+      "isActive": true
+    },
+    {
+      "id": "8",
+      "title": "Cook for weekend family event",
+      "category": "cooking",
+      "location": "Runda, Nairobi",
+      "pay": 5000,
+      "payType": "fixed",
+      "urgent": false,
+      "duration": "Saturday full day",
+      "employerId": 2,
+      "employer": "Kamau Household",
+      "description": "Catering for ~40 guests. Kenyan cuisine. Ingredients purchased by employer.",
+      "isActive": true
+    },
+    {
+      "id": "9",
+      "title": "Night guard for construction site",
+      "category": "security",
+      "location": "Syokimau, Machakos",
+      "pay": 1000,
+      "payType": "per night",
+      "urgent": false,
+      "duration": "7pm – 6am",
+      "employerId": 2,
+      "employer": "BuildRight Kenya",
+      "description": "Monitor entry, do rounds, report suspicious activity. Own torch required.",
+      "isActive": true
+    },
+    {
+      "id": "10",
+      "title": "Unblock bathroom drain",
+      "category": "plumbing",
+      "location": "Eastleigh, Nairobi",
+      "pay": 800,
+      "payType": "fixed",
+      "urgent": true,
+      "duration": "~1 hour",
+      "employerId": 2,
+      "employer": "Ali Mohammed",
+      "description": "Bathroom drain completely blocked. Quick job for an experienced plumber. Needed today.",
+      "isActive": true
+    },
+    {
+      "id": "11",
+      "title": "Deep clean 4-bedroom house",
+      "category": "cleaning",
+      "location": "Ruiru, Kiambu",
+      "pay": 3500,
+      "payType": "fixed",
+      "urgent": false,
+      "duration": "Full day",
+      "employerId": 2,
+      "employer": "Waweru Family",
+      "description": "Moving into a previously rented house. Full clean before we move in. Products provided.",
+      "isActive": true
+    },
+    {
+      "id": "12",
+      "title": "Relocate office equipment",
+      "category": "moving",
+      "location": "CBD, Nairobi",
+      "pay": 6000,
+      "payType": "fixed",
+      "urgent": false,
+      "duration": "Full day",
+      "employerId": 2,
+      "employer": "Sigma Technologies",
+      "description": "Moving office furniture and computers to a new building nearby. Need 3 careful people. This Friday.",
+      "isActive": true
+    }
+  ],
+  "applications": [
+    {
+      "jobId": 1,
+      "workerId": "1",
+      "workerName": "John Kamau",
+      "status": "pending",
+      "appliedAt": "2026-06-29T10:58:22.286Z",
+      "id": "hHRNv-Jw_kQ"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

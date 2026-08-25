@@ -1,0 +1,148 @@
+.login-page {
+  min-height: calc(100vh - 64px);
+  background: var(--light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.login-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+}
+
+.login-logo {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--dark);
+  margin-bottom: 6px;
+}
+
+.login-tagline {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--mid);
+  margin-bottom: 28px;
+}
+
+.tab-bar {
+  display: flex;
+  background: var(--light);
+  border-radius: 8px;
+  padding: 4px;
+  margin-bottom: 28px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 9px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--mid);
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: var(--white);
+  color: var(--dark);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.form-group input {
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: var(--dark);
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(85,73,64,0.12);
+}
+
+.forgot {
+  font-size: 0.82rem;
+  color: var(--primary);
+  text-align: right;
+  display: block;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 13px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-submit:hover { background: #3E362F; }
+
+.switch-text {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--mid);
+}
+
+.switch-text a {
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-group select {
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.92rem;
+  color: var(--dark);
+  background: var(--white);
+  outline: none;
+  cursor: pointer;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(85,73,64,0.12);
+}
+
+.form-group select:invalid {
+  color: var(--mid);
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="login.css">
+  <title>Login · FundiLink</title>
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">FundiLink</a>
+    </nav>
+  </header>
+
+  <div class="login-page">
+    <div class="login-card">
+
+      <p class="login-logo">FundiLink</p>
+      <p class="login-tagline">Kenya's fastest way to find work nearby</p>
+
+      <div class="tab-bar">
+        <button class="tab-btn active" id="tabLogin">Log In</button>
+        <button class="tab-btn" id="tabRegister">Register</button>
+      </div>
+
+      <form class="auth-form " id="loginForm" novalidate>
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input type="email" id="loginEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Password</label>
+          <input type="password" id="loginPassword" placeholder="Your password" required>
+        </div>
+        <a href="#" class="forgot">Forgot password?</a>
+        <button type="submit" class="btn-submit">Log In</button>
+        <p class="switch-text">No account? <a id="switchToRegister">Register here</a></p>
+      </form>
+
+      <form class="auth-form hidden" id="registerForm" novalidate>
+        <div class="form-group">
+          <label for="regFirstName">First name</label>
+          <input type="text" id="regFirstName" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label for="regLastName">Last name</label>
+          <input type="text" id="regLastName" placeholder="Kamau" required>
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email</label>
+          <input type="email" id="regEmail" placeholder="you@example.com" required>
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" placeholder="At least 8 characters" required minlength="8">
+        </div>
+        <div class="form-group">
+          <label for="regRole">Role</label>
+          <select id="regRole" required>
+            <option value="" selected disabled>Select your role</option>
+            <option value="worker">Worker</option>
+            <option value="employer">Employer</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-submit">Create Account</button>
+        <p class="switch-text">Already have an account? <a id="switchToLogin">Log in</a></p>
+      </form>
+
+    </div>
+  </div>
+
+  <script src="./login.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

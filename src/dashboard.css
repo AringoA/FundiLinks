@@ -1,0 +1,52 @@
+.dash-hero {
+  background: var(--dark);
+  padding: 48px 40px;
+}
+
+.dash-hero h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.dash-hero p {
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+}
+
+.dash-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 40px 64px;
+}
+
+.dash-empty {
+  background: var(--light);
+  border: 1px dashed var(--border);
+  border-radius: 10px;
+  padding: 60px 40px;
+  text-align: center;
+}
+
+.dash-empty h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.dash-empty p {
+  color: var(--mid);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .dash-hero { padding: 36px 20px; }
+  .dash-container { padding: 32px 16px 48px; }
+  .dash-empty { padding: 40px 20px; }
+}
