@@ -1,0 +1,186 @@
+openapi: 3.0.0
+info:
+  title: FundiLink API Specification (Team 15)
+  description: Downstream endpoints provided by FundiLink to SettleIn.
+  version: 1.0.0
+
+paths:
+  # ---------------------------------------------------------------------------
+  # Endpoint 1: GET /api/jobs
+  # ---------------------------------------------------------------------------
+  /api/jobs:
+    get:
+      summary: Returns all currently active job/service listings.
+      parameters:
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [active, pending, completed, cancelled]
+            default: active
+          example: "active"
+      responses:
+        '200':
+          description: A list of active job/service listings.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  \$ref: '#/components/schemas/JobListing'
+
+  # ---------------------------------------------------------------------------
+  # Endpoint 2: GET /api/jobs/search (Filters active listings by location & category)
+  # ---------------------------------------------------------------------------
+  /api/jobs/search:
+    get:
+      summary: Filters active listings by location and category near a student's accommodation.
+      parameters:
+        - name: county
+          in: query
+          required: true
+          schema:
+            type: string
+          example: "Nairobi"
+        - name: category
+          in: query
+          required: true
+          schema:
+            type: string
+          example: "Plumbing"
+        - name: status
+          in: query
+          required: false
+          schema:
+            type: string
+            default: active
+          example: "active"
+      responses:
+        '200':
+          description: A filtered list of matching job/service listings.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  \$ref: '#/components/schemas/JobListing'
+
+  # ---------------------------------------------------------------------------
+  # Endpoint 3: GET /api/jobs/{jobId}
+  # ---------------------------------------------------------------------------
+  /api/jobs/{jobId}:
+    get:
+      summary: Returns a single job's full details, including status and pay range.
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+      responses:
+        '200':
+          description: Detailed information for the specified job.
+          content:
+            application/json:
+              schema:
+                /$ref: '#/components/schemas/JobDetail'
+
+  # ---------------------------------------------------------------------------
+  # Endpoint 4: GET /api/jobs/{jobId}/status
+  # ---------------------------------------------------------------------------
+  /api/jobs/{jobId}/status:
+    get:
+      summary: Returns just the availability status of a job (lightweight polling endpoint).
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: "123e4567-e89b-12d3-a456-426614174000"
+      responses:
+        '200':
+          description: Lightweight status response.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - jobId
+                  - status
+                  - updatedAt
+                properties:
+                  jobId:
+                    type: string
+                    format: uuid
+                    example: "123e4567-e89b-12d3-a456-426614174000"
+                  status:
+                    type: string
+                    example: "active"
+                  updatedAt:
+                    type: string
+                    format: date-time
+                    example: "2026-10-13T08:30:00Z"
+
+  # ---------------------------------------------------------------------------
+  # Endpoint 5: GET /api/applications/{applicationId}/status
+  # ---------------------------------------------------------------------------
+  /api/applications/{applicationId}/status:
+    get:
+      summary: Returns the current status of an application or service request.
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: "987e6543-e21b-12d3-a456-426614174000"
+      responses:
+        '200':
+          description: Current application status payload.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - applicationId
+                  - status
+                  - updatedAt
+                properties:
+                  applicationId:
+                    type: string
+                    format: uuid
+                    example: "987e6543-e21b-12d3-a456-426614174000"
+                  status:
+                    type: string
+                    example: "accepted"
+                  updatedAt:
+                    type: string
+                    format: date-time
+                    example: "2026-10-13T09:15:00Z"
+
+  # ---------------------------------------------------------------------------
+  # Endpoint 6: GET /api/applications/{applicationId}/subscribe
+  # ---------------------------------------------------------------------------
+  /api/applications/{applicationId}/subscribe:
+    get:
+      summary: Opens a WebSocket/SSE stream pushing status changes in real time (accepted / filled).
+      parameters:
+        - name: applicationId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          example: "987e6543-e21b-12d3-a456-426614174000"
+      responses:
+        '200':
+          description: SSE event stream initialized successfully.
+          content:
+            text/event-stream:
+              schema:
