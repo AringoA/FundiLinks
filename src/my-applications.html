@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="index.css"><link rel="stylesheet" href="jobs.css"><title>My Applications · FundiLink</title><style>.application-card{background:#fff;border-radius:12px;padding:1.2rem;margin:1rem 0;box-shadow:0 4px 18px #1232}.application-card button{padding:.65rem 1rem;border:0;border-radius:8px;cursor:pointer}</style></head><body>
+<header><nav class="navbar"><a href="index.html" class="logo">FundiLink</a><button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button><ul class="nav-menu"><li><a href="jobs.html">Browse Jobs</a></li><li><a href="my-applications.html" class="active">My Applications</a></li><li><a href="#" id="logoutBtn">Log Out</a></li></ul></nav></header>
+<main class="jobs-container"><section class="jobs-hero"><h1>My Applications</h1><p>Track requests and cancel applications that are still pending.</p></section><div id="applications" aria-live="polite">Loading applications…</div></main>
+<script src="main.js"></script><script>
+(async()=>{
+ const root=document.getElementById("applications");let user=null;
+ try{user=JSON.parse(localStorage.getItem("fundilinkUser")||"null")}catch{}
+ document.getElementById("logoutBtn")?.addEventListener("click",e=>{e.preventDefault();localStorage.removeItem("fundilinkUser");location.href="login.html"});
+ if(!user)return;
+ try{
+  const [ar,jr]=await Promise.all([fetch("http://localhost:3001/applications?workerId="+encodeURIComponent(user.id)),fetch("http://localhost:3001/jobs")]);
+  if(!ar.ok||!jr.ok)throw Error("Could not load your applications.");
+  const [apps,jobs]=await Promise.all([ar.json(),jr.json()]);root.replaceChildren();
+  if(!apps.length){root.textContent="You have not applied for any jobs yet.";return}
+  apps.forEach(a=>{
+   const job=jobs.find(j=>String(j.id)===String(a.jobId)),card=document.createElement("article");card.className="application-card";
+   const title=document.createElement("h2");title.textContent=job?job.title:"Job "+a.jobId;
+   const detail=document.createElement("p");detail.textContent=(job?job.location:"")+(job?" · KES "+Number(job.pay).toLocaleString():"")+" · Status: "+a.status;card.append(title,detail);
+   if(a.status==="pending"){const btn=document.createElement("button");btn.textContent="Cancel application";btn.addEventListener("click",async()=>{btn.disabled=true;try{const r=await fetch("http://localhost:3001/applications/"+encodeURIComponent(a.id),{method:"DELETE"});if(!r.ok&&r.status!==204)throw Error("Could not cancel application.");detail.textContent=(job?job.location:"")+" · Status: cancelled";btn.remove()}catch(err){btn.disabled=false;alert(err.message)}});card.append(btn)}
+   root.append(card);
+  });
+ }catch(err){root.textContent=err.message||"Could not load applications."}
+})();
+</script></body></html>
