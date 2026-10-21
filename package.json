@@ -1,21 +1,14 @@
 {
-  "name": "fundi-links-project",
-  "version": "1.0.0",
-  "description": "**Kenya's fastest way to find casual work, nearby.**",
+  "name": "fundilinks-project",
+  "version": "1.1.0",
+  "description": "Kenya's fastest way to find casual work, nearby.",
   "homepage": "https://github.com/AringoA/FundiLinks#readme",
-  "bugs": {
-    "url": "https://github.com/AringoA/FundiLinks/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AringoA/FundiLinks.git"
-  },
+  "bugs": { "url": "https://github.com/AringoA/FundiLinks/issues" },
+  "repository": { "type": "git", "url": "git+https://github.com/AringoA/FundiLinks.git" },
   "license": "ISC",
-  "author": "",
   "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/main.js"
-  }
+  "main": "app.js",
+  "scripts": { "start": "node routes.js", "test": "jest --runInBand", "test:watch": "jest --watch", "serve:web": "http-server . -p 8080" },
+  "dependencies": { "express": "^4.21.2" },
+  "devDependencies": { "jest": "^29.7.0", "supertest": "^7.1.1", "http-server": "^14.1.1" }
 }
