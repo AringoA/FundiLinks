@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="index.css"><title>Post a Job · FundiLink</title>
+<style>.form-wrap{max-width:760px;margin:3rem auto;padding:2rem;background:#fff;border-radius:14px;box-shadow:0 8px 30px #132b3b12}.job-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}.job-form label{display:flex;flex-direction:column;gap:.4rem;font-weight:600}.job-form input,.job-form select,.job-form textarea{width:100%;padding:.8rem;border:1px solid #cbd5e1;border-radius:8px;font:inherit}.job-form .wide{grid-column:1/-1}.job-form button{padding:.9rem 1rem;border:0;border-radius:8px;cursor:pointer}.notice{margin-top:1rem}@media(max-width:600px){.job-form{grid-template-columns:1fr}.job-form .wide{grid-column:auto}}</style></head><body>
+<header><nav class="navbar"><a href="index.html" class="logo">FundiLink</a><button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">☰</button><ul class="nav-menu"><li><a href="dashboard.html">Dashboard</a></li><li><a href="post-job.html" class="active">Post a Job</a></li><li><a href="#" id="logoutBtn">Log Out</a></li></ul></nav></header>
+<main class="form-wrap"><h1>Post a Job</h1><p>Describe the work and show the pay upfront.</p><form id="jobForm" class="job-form">
+<label>Job title<input name="title" required maxlength="120" placeholder="e.g. Fix leaking kitchen sink"></label>
+<label>Category<select name="category" required><option value="">Choose category</option><option value="plumbing">Plumbing</option><option value="electrical">Electrical</option><option value="cleaning">Cleaning</option><option value="painting">Painting</option><option value="moving">Moving</option><option value="gardening">Gardening</option><option value="driving">Driving</option><option value="cooking">Cooking</option><option value="security">Security</option></select></label>
+<label>Location<input name="location" required maxlength="160" placeholder="e.g. Westlands, Nairobi"></label>
+<label>Pay (KES)<input name="pay" type="number" required min="0" step="1" placeholder="1500"></label>
+<label>Pay type<select name="payType" required><option value="fixed">Fixed price</option><option value="per hour">Per hour</option><option value="per day">Per day</option><option value="per night">Per night</option></select></label>
+<label>Duration<input name="duration" required maxlength="100" placeholder="e.g. 2 hours"></label>
+<label class="wide">Description<textarea name="description" rows="4" maxlength="2000" placeholder="Explain the work, tools and timing"></textarea></label>
+<label class="wide"><span><input type="checkbox" name="urgent" style="width:auto"> Mark as urgent</span></label>
+<div class="wide"><button type="submit" class="btn-primary">Publish Job</button><p id="notice" class="notice" role="status"></p></div></form></main>
+<script src="main.js"></script><script>
+(() => {
+ const form=document.getElementById("jobForm"), notice=document.getElementById("notice");
+ let user=null; try{user=JSON.parse(localStorage.getItem("fundilinkUser")||"null")}catch{}
+ document.getElementById("logoutBtn")?.addEventListener("click",e=>{e.preventDefault();localStorage.removeItem("fundilinkUser");location.href="login.html"});
+ form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  if(!user||user.role!=="employer"){notice.textContent="Please sign in with an employer account.";return}
+  const f=new FormData(form), payload={title:String(f.get("title")||"").trim(),category:String(f.get("category")||"").toLowerCase(),location:String(f.get("location")||"").trim(),pay:Number(f.get("pay")),payType:String(f.get("payType")),duration:String(f.get("duration")||"").trim(),description:String(f.get("description")||"").trim(),urgent:f.get("urgent")==="on",employerId:String(user.id),employer:[user.firstName,user.lastName].filter(Boolean).join(" ")};
+  try{const r=await fetch("http://localhost:3001/jobs",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});const data=await r.json();if(!r.ok)throw Error(data.message||"Could not publish job.");notice.textContent="Job published successfully.";form.reset();setTimeout(()=>location.href="dashboard.html",800)}catch(err){notice.textContent=err.message||"Could not reach API. Start the server with npm start."}
+ });
+})();
+</script></body></html>
