@@ -3,7 +3,7 @@ info:
   title: FundiLink API Specification (Team 15)
   description: Downstream endpoints provided by FundiLink to SettleIn.
   version: 1.0.0
-
+- url: http://localhost:3000
 paths:
   # ---------------------------------------------------------------------------
   # Endpoint 1: GET /api/jobs

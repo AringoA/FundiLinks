@@ -1,0 +1,21 @@
+{
+  "name": "fundi-links-project",
+  "version": "1.0.0",
+  "description": "**Kenya's fastest way to find casual work, nearby.**",
+  "homepage": "https://github.com/AringoA/FundiLinks#readme",
+  "bugs": {
+    "url": "https://github.com/AringoA/FundiLinks/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AringoA/FundiLinks.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/main.js"
+  }
+}

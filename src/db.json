@@ -300,6 +300,5 @@
       "appliedAt": "2026-06-29T10:58:22.286Z",
       "id": "hHRNv-Jw_kQ"
     }
-  ],
-  "$schema": "./node_modules/json-server/schema.json"
+  ]
 }
